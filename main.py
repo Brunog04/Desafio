@@ -1,4 +1,5 @@
 # Importante!! O script abaixo utiliza as seguintes bibliotecas: pandas, re, geopandas, shapely e matplotlib
+# O gráfico será aberto e também salvo como 'grafico_precipitacao.png'
 
 import pandas as pd
 import re
