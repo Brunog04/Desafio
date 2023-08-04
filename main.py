@@ -1,3 +1,5 @@
+# Importante!! O script abaixo utiliza as seguintes bibliotecas: pandas, re, geopandas, shapely e matplotlib
+
 import pandas as pd
 import re
 import geopandas as gpd
@@ -50,6 +52,7 @@ def plot_grafico(total_points: pd.DataFrame):
     plt.title('Previsão de Precipitação Acumulada para a Região de Camargos')
     plt.xticks(rotation=40, ha='right')
     plt.tight_layout()
+    plt.savefig('grafico_precipitacao.png')
     plt.show()
 
 def main() -> pd.DataFrame:
@@ -68,7 +71,7 @@ def main() -> pd.DataFrame:
         forecast_date = f"{list_arquivos[i][7:9]}/{list_arquivos[i][9:11]}/{list_arquivos[i][11:13]}"
         forecasted_date = f"{list_arquivos[i][14:16]}/{list_arquivos[i][16:18]}/{list_arquivos[i][18:20]}"
         precipitacao = apply_contour(contour_df=contour_df, data_df=data_df)
-        total_points = total_points.append({'data_value': precipitacao,
+        total_points = total_points._append({'data_value': precipitacao,
                                             'forecast_date': forecast_date,
                                             'forecasted_date': forecasted_date,
                                            }, ignore_index=True)
